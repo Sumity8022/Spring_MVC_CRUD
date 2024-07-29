@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: fourthapp
+    
+---    
+spring:
+  profiles:
+     active: test
+        
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/devapp
+    username: root
+    password: root
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:mysql://localhost:3306/testapp
+    username: root
+    password: root
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:mysql://localhost:3306/prodapp
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
